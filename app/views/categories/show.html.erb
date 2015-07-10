@@ -1,0 +1,7 @@
+<% header = link_to( t(".All FMPosts"), posts_path) + " &raquo; #{t(".Showing Category:")} #{@category.name}".html_safe %>
+
+<%= render 'shared/content_title', title: header  %>
+
+<% @category.posts.each do |post| %>
+	<%= render 'posts/post', post: post %>
+<% end %>
