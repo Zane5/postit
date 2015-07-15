@@ -9,24 +9,6 @@ development:
   pool: 5
   timeout: 5000
 
-# pegasus_db:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: xxrouter
-#   username: pegasus
-#   password: MCSCVe2YeT5r3VHvRsYxCAMcva3a3PoP
-#   host: 114.215.145.12
-#   port: 9336
-
-pegasus_db:
-  adapter: mysql2
-  encoding: utf8
-  database: xxrouter
-  username: pegasus
-  password: MeQUrt3ZRLbL8e7n
-  host: 192.168.88.157
-  port: 3306
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.

@@ -1,3 +1,4 @@
+=begin
 class Charger < ActiveRecord::Base
 	establish_connection(:pegasus_db)
 	self.abstract_class = true
@@ -22,3 +23,4 @@ class Charger < ActiveRecord::Base
 	end
 	
 end
+=end
