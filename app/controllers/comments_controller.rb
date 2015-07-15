@@ -2,12 +2,8 @@ class CommentsController < ApplicationController
 	before_action :require_user
 
 	def create
-		# binding.pry
 		@post = Post.find_by slug: params[:post_id]
-		#@comment = Comment.new(params.require(:comment).permit(:body))
 		@comment = @post.comments.build(params.require(:comment).permit(:body))
-		# binding.pry
-		#@comment.creator = User.first # TODO: fix after authentication
 		@comment.creator = current_user
 
 		if @comment.save
@@ -19,7 +15,7 @@ class CommentsController < ApplicationController
 	end
 
 	def vote
-		@comment = Comment.find_by(slug: params[:id])
+		@comment = Comment.find_by(params[:id])
 		@vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
 
 		respond_to do |format|
@@ -33,7 +29,6 @@ class CommentsController < ApplicationController
 			end
 			format.js
 		end
-		
 	end
 end
 # redirect -> URLs

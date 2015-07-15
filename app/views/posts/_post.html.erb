@@ -26,6 +26,12 @@
 			<%= render post.categories %>
  			<h4><%= link_to post.title, post_path(post) %></h4>
       <small>
+        <% if logged_in? %>
+          [<%= link_to 'edit', edit_post_path(post) %>]
+        <% end %>
+      </small>
+      </br>
+      <small>
         <%= t(".homepage") %>
         <%= link_to post.url,  fix_url(post.url) %>
 			</small>

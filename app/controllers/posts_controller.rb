@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   def index
   	#render 'index' # :index
   	#render 'posts/index'
-  	@posts = Post.all.sort_by{|x| x.total_votes}.reverse
+  	@posts = Post.limit(Post::PER_PAGE).offset(params[:offset])   ####.sort_by{|x| x.total_votes}.reverse
+    @pages = (Post.all.size.to_f / Post::PER_PAGE).ceil
 
     respond_to do |format|
       format.html
@@ -68,16 +69,15 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html do #{redirect_to :back, notice: "Your vote was counted"}
-      if vote.valid?
-        flash[:notice] = "You vote was counted."
-      else
-        flash[:error] = "You can only vote for <strong>that</strong> once.".html_safe
+        if vote.valid?
+          flash[:notice] = "You vote was counted."
+        else
+          flash[:error] = "You can only vote for <strong>that</strong> once.".html_safe
+        end
+        redirect_to :back
       end
-      redirect_to :back
-    end
       format.js #{ render json: @post}
     end
-
   end
   
   private
