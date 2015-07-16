@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     # if user.admin?
       #params.require(:post).permit!
     # else
-    params.require(:post).permit(:title, :url, :description)
+    params.require(:post).permit(:title, :url, :description,category_ids: [])
     # end
   end
 

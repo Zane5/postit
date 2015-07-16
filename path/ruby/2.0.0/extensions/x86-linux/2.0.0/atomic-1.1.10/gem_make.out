@@ -1,0 +1,12 @@
+/home/vagrant/.rvm/rubies/ruby-2.0.0-p643/bin/ruby -r ./siteconf20150715-12693-yfha12.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling atomic_reference.c
+linking shared-object atomic_reference.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 atomic_reference.so ./.gem.20150715-12693-d222ms
+installing default atomic_reference libraries

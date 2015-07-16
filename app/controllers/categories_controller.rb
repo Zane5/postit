@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:show, :edit, :update]
 	before_action :require_user, only: [:new, :create]
 	before_action :require_admin, only: [:new, :create]
 	
@@ -10,7 +11,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
 
 		if @category.save
-			flash[:notice]= t("Category has been created")
+			flash[:notice]= "Category has been created"
 			redirect_to root_path
 		else
 			render :new
@@ -26,4 +27,8 @@ class CategoriesController < ApplicationController
 	def category_params
 		params.require(:category).permit(:name)
 	end
+  
+  def set_category
+    @category = Category.find_by slug: params[:id]
+  end
 end 

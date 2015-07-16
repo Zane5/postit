@@ -1,3 +1,4 @@
+=begin
 class ChargersController < ApplicationController
   def index
   	#render 'index' # :index
@@ -6,3 +7,4 @@ class ChargersController < ApplicationController
   	@chargers = Charger.all
   end
 end
+=end
