@@ -1,12 +1,12 @@
  <ul class="nav">
   <li>
-    <%= link_to t(".FMPost"), root_path, :class => 'brand' %>
+    <%= link_to "FMPost", root_path, :class => 'brand' %>
   </li>
   
 
 	<div class='btn-group nav_item'>
 		<%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-      <%= t(".FMCategories") %> <span class='caret'></span>
+      FMCategories <span class='caret'></span>
 		<% end %>
 		<ul class='dropdown-menu'>
 			<% Category.all.each do |category| %>
@@ -20,7 +20,7 @@
 				<li>
 					<%= link_to(new_category_path) do %>
 						<i class='icon-plus'></i>
-            <%= t(".New Category") %>
+            New Category
 					<% end %>
 				</li>
 			 <% end %>
@@ -29,7 +29,7 @@
 
 	<% if logged_in? %>
 		<div class='nav_item'>
-			<%= link_to t('.New FMPost'), new_post_path, class: 'btn btn-success btn-small'%>
+			<%= link_to "New FMPost", new_post_path, class: 'btn btn-success btn-small'%>
 		</div>
 		<div class='btn-group nav_item'>
 		<%= link_to('', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown') do %>
@@ -40,19 +40,19 @@
 			<li>
 				<%= link_to edit_user_path(current_user) do %>
 					<i class='icon-pencil'></i>
-          <%= t(".Edit Profile") %> 
+          Edit Profile
 				<% end %>
 			</li>
 			<li>
 				<%= link_to user_path(current_user) do %>
 					<i class='icon-user'></i>
-          <%= t(".View Profile") %> 
+          View Profile 
 				<% end %>
 			</li>
 			<li>
 				<%= link_to logout_path do %>
 					<i class='icon-circle-arrow-left'></i>
-          <%= t(".logout") %>
+          logout
 				<% end %>
 			</li>
 		</ul>
@@ -62,7 +62,7 @@
 			<%= link_to 'Register', register_path, class: 'btn btn-success btn-small'%>
 		</div>
 	  <div class='nav_item'>
-			<%= link_to 'Lot in', login_path, class: 'btn btn-success btn-small'%>
+			<%= link_to 'Log in', login_path, class: 'btn btn-success btn-small'%>
 		</div>
 	<% end %>
 

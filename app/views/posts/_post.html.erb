@@ -32,17 +32,17 @@
       </small>
       </br>
       <small>
-        <%= t(".homepage") %>
+        homepage
         <%= link_to post.url,  fix_url(post.url) %>
 			</small>
       <p><%= post.description %></p>
 			<p>
-      <span class='quite'> <%= t(".posted by") %> </span> <%= link_to post.creator.username, user_path(post.creator) %>
-    <small><%= t(".at") %> <%= display_datetime(post.created_at) %></small>
+      <span class='quite'> posted by </span> <%= link_to post.creator.username, user_path(post.creator) %>
+    <small>at <%= display_datetime(post.created_at) %></small>
 			</p>
 			<small>
 				<span>
-          <%= link_to("#{post.comments.size}  #{t(".comments")}  ", post_path(post)) %>
+          <%= link_to("#{post.comments.size}  comments", post_path(post)) %>
 			 	</span>
 			</small>
 		</div>
